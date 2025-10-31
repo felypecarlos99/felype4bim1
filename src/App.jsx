@@ -2,6 +2,22 @@ import React, { useState } from "react";
 import "./App.css";
 
 export default function App() {
+  const[email, setEmail]= useState('')
+  const[senha, setSenha]= useState('')
+
+  const mudancadeEmail=(e)=>{
+    setEmail(e.target.value)
+  }
+
+  const mudancadeSenha=(e)=>{
+    setSenha(e.target.value)
+  }
+
+  const enviarForms=(e)=>{
+    e.preventDefault()
+    console.log(`Email:${email}, Senha ${senha}`)
+  }
+
   const [formData, setFormData] = useState({
     nome: "",
     idade: "",
@@ -40,6 +56,8 @@ export default function App() {
         <p>Foto</p>
       </div>
 
+    
+
       <form onSubmit={handleSubmit}>
         <div className="grupo">
           <label>Nome:</label>
@@ -50,6 +68,9 @@ export default function App() {
             placeholder="Digite seu nome"
           />
         </div>
+
+
+      
 
         <div className="grupo">
           <label>Idade:</label>
@@ -181,7 +202,7 @@ export default function App() {
           />
         </div>
 
-        <button type="submit">Enviar Informações</button>
+        <button type="submit">Cadastrar</button>
       </form>
     </div>
   );
